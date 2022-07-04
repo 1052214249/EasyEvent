@@ -1,0 +1,28 @@
+# 定义一个查询,用type Query
+type Query{
+    events: [Event!]  #表示操作名叫events，[String!]表示返回一个String类型的数组，!表示必填
+}
+
+#定义一个增删改用type Mutation
+type Mutation{
+    #表示操作名叫createEvent，Event表示返回一个Event类型的对象，(event: inputEvent)表示传入一个inputEvent类型的参数，名字叫event
+    #注意，传入参数类型除了基本数据类型，对象一般都要用下面的 input关键字来定义，而不是type
+    createEvent(event: inputEvent): Event
+}
+
+#注意以下用type、input定义的类型都需要在java中定义对应的类，如本项目的type包中的类
+input inputEvent{
+    title: String!
+    desc: String
+    price: Float
+    date: String!
+}
+
+#表示定义了一个类型叫Event，其中属性用 属性名:类型 定义,!表示如果有值必须返回即必填
+type Event{
+    id: ID !# graphqls本身就支持ID类型
+    title: String!
+    desc: String
+    price: Float # graphqls浮点类型只有Float，没有Double
+    date: String! # graphqls本身不支持Date类型
+}
