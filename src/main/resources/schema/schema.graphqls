@@ -7,22 +7,22 @@ type Query{
 type Mutation{
     #表示操作名叫createEvent，Event表示返回一个Event类型的对象，(event: inputEvent)表示传入一个inputEvent类型的参数，名字叫event
     #注意，传入参数类型除了基本数据类型，对象一般都要用下面的 input关键字来定义，而不是type
-    createEvent(event: inputEvent): Event
+    createEvent(event: inputEvent): String
 }
 
 #注意以下用type、input定义的类型都需要在java中定义对应的类，如本项目的type包中的类
 input inputEvent{
     title: String!
     desc: String
-    price: Float
+    price: Float # graphql中的Float类型对应java中的Double类型
     date: String!
 }
 
 #表示定义了一个类型叫Event，其中属性用 属性名:类型 定义,!表示如果有值必须返回即必填
 type Event{
-    id: ID !# graphqls本身就支持ID类型
+    id: ID !# graphql本身就支持ID类型
     title: String!
     desc: String
-    price: Float # graphqls浮点类型只有Float，没有Double
-    date: String! # graphqls本身不支持Date类型
+    price: Float # graphql中的Float类型对应java中的Double类型
+    date: String! # graphql本身不支持Date类型
 }

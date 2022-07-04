@@ -11,6 +11,6 @@ import lombok.Data;
 public class InputEvent {
     private String title;
     private String desc;
-    private Float price;
+    private Double price;
     private String date;
 }

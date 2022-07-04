@@ -12,6 +12,6 @@ public class Event {
     private String id;
     private String title;
     private String desc;
-    private Float price;
+    private Double price;
     private String date;
 }
